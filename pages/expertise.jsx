@@ -2,8 +2,8 @@ import React from "react";
 
 const Expertise = () => {
   return (
-    <div>
-      <h2>My Expertise</h2>
+    <div className="  h-screen">
+      <h2 className="font-semibold">My Expertise</h2>
       <div>
         <span className="border">
           Passionate about UI/UX. Over 4 years of development experience in

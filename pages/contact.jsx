@@ -31,8 +31,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto grid grid-cols-1  p-10 max-w-3xl">
-      <h1 className="font-semibold text-4xl">Contact Us</h1>
+    <div className="container mx-auto snap-y snap-mandatory grid grid-cols-1 bg-[var(--darkModeColor)] text-white p-10 max-w-3xl">
+      <h1 className="font-semibold text-4xl">Contact Me</h1>
       <div className="">
         <div className="mt-6">
           <p>
@@ -41,6 +41,10 @@ const Contact = () => {
             Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur
             adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam
+            <span className="">
+              A message will be sent directly to this person, So sent with
+              cautious
+            </span>
           </p>
         </div>
         <div className="sm:flex mt-10">
@@ -54,13 +58,13 @@ const Contact = () => {
           <div className="border sm:flex-1 p-4">
             <h3 className="font-bold">Contact</h3>
             <p className="text-#996A75 font-sans">
-              Contact 313-332-8662 <br /> info@email.com
+              Contact 976-85650090 <br /> tsernyanjinb216@email.com
             </p>
           </div>
         </div>
       </div>
       <form
-        className="bg-[#e7e7e9] p-6 mt-11"
+        className="bg-[var(--darkModeColor)] text-white p-6 mt-11"
         id="userForm"
         ref={form}
         onSubmit={sendEmail}
@@ -72,14 +76,14 @@ const Contact = () => {
             name="from_name"
             id=""
             placeholder="Your Name"
-            className=" w-1/2 border"
+            className=" w-1/2 border rounded p-1 "
           />
           <input
             type="email"
             name="user_email"
             id=""
             placeholder="Your Email"
-            className=" w-1/2"
+            className=" w-1/2 rounded p-1 "
           />
         </div>
         <input
@@ -88,16 +92,20 @@ const Contact = () => {
           id=""
           placeholder="Subject "
           className="my-6
-          w-11/12
+          w-11/12 rounded p-1 
           "
         />
         <textarea
           type="text"
           name="message"
           placeholder="Write a message"
-          className="w-11/12 "
+          className="w-11/12 rounded p-1 text-black "
         />
-        <button type="submit" form="userForm">
+        <button
+          className="bg-[var(--primaryColor)]  p-2 rounded"
+          type="submit"
+          form="userForm"
+        >
           Send a message
         </button>
 
