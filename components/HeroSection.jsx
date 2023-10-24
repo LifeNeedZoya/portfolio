@@ -22,6 +22,17 @@ const HeroSection = () => {
             Back-end, Front-end developer & Freelancer
           </p>
         </div>
+        <div className="border-t-4 border-pink-500 xl:w-[600px] my-12">
+          <p className="m-5 text-lg">
+            I am Fullstack developer based in Ulaan-baatar .Nowadays i am
+            student in Pinecone academy{" "}
+          </p>
+        </div>
+        <div className="border-t-4 border-pink-500 my-12 xl:w-[600px]">
+          <p className="m-5 text-lg">
+            And i am willing to do internship in a tech company{" "}
+          </p>
+        </div>
       </div>
     </main>
   );
