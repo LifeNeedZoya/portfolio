@@ -5,9 +5,9 @@ import HouseModel from "../HouseModel";
 const Projects = () => {
   return (
     <section>
-      <div className="w-screen h-screen  text-white">
+      <div className="w-screen  text-white my-40">
         <h1 className="font-bold text-4xl tracking-[20px] text-center">
-          Projects
+          Thanks For Visiting My Portfolio
         </h1>
       </div>
     </section>

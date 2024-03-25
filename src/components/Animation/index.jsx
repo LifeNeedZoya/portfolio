@@ -30,34 +30,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
   {
-    title: "Zoya's Personal Portfolio Website",
-    url: "https://www.google.com/",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4fN8ZVn7L3ZS9FJntXEPS_3r2szgCJS6qjMUq4VbQYbsJ-APJJECeTtFFbwbSKd0RBT4&usqp=CAU",
-  },
-  {
     title: "Food delivery Client Website",
-    url: "https://www.google.com/",
+    url: "https://food-fullstack-app-jd96.vercel.app/",
     image:
-      "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
+      "https://media.istockphoto.com/id/1485674929/photo/woman-asian-professional-nutritionist-busy-working-and-checking-data-from-a-tablet-with-a.jpg?s=1024x1024&w=is&k=20&c=vKKx-fQq4IkQAe8d9f7Mngy_qO2x2E3hT8AWyDGsJfg=",
   },
   {
     title: "Food Delivery Admin Website",
-    url: "https://www.google.com/",
+    url: "https://food-fullstack-app-x62q.vercel.app/login",
     image:
-      "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
+      "https://images.unsplash.com/photo-1632406898177-95f7acd8854f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFkbWlufGVufDB8fDB8fHww",
+  },
+  {
+    title: "Zoya's Personal Portfolio Website",
+    url: "https://portfoliozoya.vercel.app/",
+    image:
+      "https://media.istockphoto.com/id/515749452/photo/portfolio.jpg?s=612x612&w=0&k=20&c=clEx211k1R0tVdbMTlWy140856BwThWl65LhiV4O3jQ=",
   },
   {
     title: "Food Delivery Backend Server",
-    url: "https://www.google.com/",
+    url: "https://food-fullstack-app.vercel.app/",
     image:
-      "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
+      "https://plus.unsplash.com/premium_photo-1661726637770-fefe253c10e8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww",
   },
   {
-    title: "Income Tracker Website",
-    url: "https://www.google.com/",
+    title: "Income Tracker Website Frontend",
+    url: "https://income-expense-hh4v.vercel.app/login",
     image:
-      "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
+      "https://media.istockphoto.com/id/1215466881/vector/dark-minimal-slides-presentation-background-template-business-presentation-template.jpg?s=612x612&w=0&k=20&c=diAge2wYDq9Q8oJgUWM1gPXhMcNFZCacqTpYBbr05yo=",
+  },
+  {
+    title: "Income Tracker Website Backend",
+    url: "https://income-expense-gold.vercel.app/",
+    image:
+      "https://media.istockphoto.com/id/1215466881/vector/dark-minimal-slides-presentation-background-template-business-presentation-template.jpg?s=612x612&w=0&k=20&c=diAge2wYDq9Q8oJgUWM1gPXhMcNFZCacqTpYBbr05yo=",
   },
 ];
 
@@ -301,7 +307,7 @@ const AnimateGraph = () => {
               ref={addToRefs}
               style={{ width: "100%" }}
             >
-              <div className="card md:w-96 lg:w-[550px] shadow-xl bg-base-100 ">
+              <div className="card md:w-96 lg:w-[550px] shadow-xl bg-base-100 overflow-auto ">
                 <figure className="px-5 pt-5">
                   <img
                     src={image}
@@ -314,7 +320,7 @@ const AnimateGraph = () => {
                   <h2 className="card-title">{title}</h2>
                   <div className="  ">
                     <button className="btn btn-primary  text-white">
-                      <Link href={url}>Go To Project {`${url}`}</Link>
+                      <Link href={url}>Go To Project </Link>
                     </button>
                   </div>
                 </div>
