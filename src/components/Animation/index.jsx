@@ -42,7 +42,7 @@ const sections = [
   },
   {
     title: "Zoya's Personal Portfolio Website",
-    url: "https://portfoliozoya.vercel.app/",
+    url: "https://portfolio-7rkalaws6-lifeneedzoyas-projects.vercel.app/",
     image: "/portfolio.png",
   },
   {
