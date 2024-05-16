@@ -1,27 +1,24 @@
 "use client";
-import React from "react";
-
+import React, { useRef } from "react";
 import { OrbitControls, Stage } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import Model from "../ModelDraco";
 
-const HouseModel = () => {
+export const HouseModel = () => {
+  const modelRef = useRef();
+
   return (
-    <Canvas aria-setsize={500}>
+    <Canvas camera={{ position: [0, 1, 2], fov: 75 }}>
       <ambientLight intensity={1} />
-      <Stage environment={"city"} intensity={0.6}>
-        <Model />
+      <Stage environment="city" intensity={0.6}>
+        <Model ref={modelRef} />
       </Stage>
       <OrbitControls
         enableZoom={false}
-        rotateSpeed={10}
-        rotation={true}
+        rotateSpeed={1} // Adjust rotation speed
         autoRotate={true}
-        autoRotateSpeed={10}
-        onPointerMove={false}
+        autoRotateSpeed={1} // Adjust auto-rotate speed
       />
     </Canvas>
   );
 };
-
-export default HouseModel;

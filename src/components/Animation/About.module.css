@@ -1,0 +1,92 @@
+/* About.module.css */
+
+.container {
+  position: relative;
+  background-color: rgba(12, 12, 12, 0.6);
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 1px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make the container take full height of the viewport */
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%; /* Ensure content takes full height */
+  width: 100%;
+}
+
+.gamingRoom {
+  flex: 1; /* Make the gaming room take all available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the gaming room takes full height */
+}
+
+.aboutItems {
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  gap: 50px;
+}
+
+.aboutItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  list-style: none;
+  padding: 25px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(165, 215, 232, 0.42) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: 0.4s;
+}
+
+.aboutItem:hover {
+  background-size: 100% 100%;
+}
+
+.aboutItem h3 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.aboutItem p {
+  font-size: 25px;
+}
+
+@media screen and (max-width: 830px) {
+  .container {
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .aboutImage {
+    display: none;
+  }
+
+  .aboutItems {
+    margin-top: 29px;
+  }
+
+  .aboutItem {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

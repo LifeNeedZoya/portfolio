@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import { FaHtml5, FaNodeJs, FaGithubSquare, FaSass } from "react-icons/fa";
 import { FaReact } from "react-icons/fa6";
+import "react-quill/dist/quill.snow.css";
+import { Tilt } from "react-tilt";
 import {
   TbBrandNextjs,
   TbBrandTailwind,
@@ -18,7 +20,8 @@ import {
   SiGit,
   SiTypescript,
 } from "react-icons/si";
-
+import ReactQuill from "react-quill";
+import AboutPage from "./About";
 import { IoLogoCss3 } from "react-icons/io5";
 
 import "./App.css";
@@ -32,41 +35,51 @@ const sections = [
   {
     title: "Food delivery Client Website",
     url: "https://food-fullstack-app-jd96.vercel.app/",
-    image:
-      "https://media.istockphoto.com/id/1485674929/photo/woman-asian-professional-nutritionist-busy-working-and-checking-data-from-a-tablet-with-a.jpg?s=1024x1024&w=is&k=20&c=vKKx-fQq4IkQAe8d9f7Mngy_qO2x2E3hT8AWyDGsJfg=",
+    image: "/food.png",
   },
   {
     title: "Food Delivery Admin Website",
     url: "https://food-fullstack-app-x62q.vercel.app/login",
-    image:
-      "https://images.unsplash.com/photo-1632406898177-95f7acd8854f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFkbWlufGVufDB8fDB8fHww",
+    image: "/foodAdmin.png",
   },
   {
     title: "Zoya's Personal Portfolio Website",
     url: "https://portfoliozoya.vercel.app/",
-    image:
-      "https://media.istockphoto.com/id/515749452/photo/portfolio.jpg?s=612x612&w=0&k=20&c=clEx211k1R0tVdbMTlWy140856BwThWl65LhiV4O3jQ=",
+    image: "/portfolio.png",
   },
   {
     title: "Food Delivery Backend Server",
     url: "https://food-fullstack-app.vercel.app/",
-    image:
-      "https://plus.unsplash.com/premium_photo-1661726637770-fefe253c10e8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww",
+    image: "/food.png",
   },
   {
     title: "Income Tracker Website Frontend",
     url: "https://income-expense-hh4v.vercel.app/login",
-    image:
-      "https://media.istockphoto.com/id/1215466881/vector/dark-minimal-slides-presentation-background-template-business-presentation-template.jpg?s=612x612&w=0&k=20&c=diAge2wYDq9Q8oJgUWM1gPXhMcNFZCacqTpYBbr05yo=",
+    image: "/income.png",
   },
   {
     title: "Income Tracker Website Backend",
     url: "https://income-expense-gold.vercel.app/",
-    image:
-      "https://media.istockphoto.com/id/1215466881/vector/dark-minimal-slides-presentation-background-template-business-presentation-template.jpg?s=612x612&w=0&k=20&c=diAge2wYDq9Q8oJgUWM1gPXhMcNFZCacqTpYBbr05yo=",
+    image: "/income.png",
+  },
+  {
+    title: "GLMS Pinecone",
+    url: "https://intern-glms-dashboard-pinecone-studio.vercel.app/challenge-dashboard",
+    image: "/glms.png",
   },
 ];
 
+const defaultOptions = {
+  reverse: false,
+  max: 35,
+  perspective: 1000,
+  scale: 1.1,
+  speed: 1000,
+  transition: true,
+  axis: null,
+  reset: true,
+  easing: "cubic-bezier(.03,.98,.52,.99)",
+};
 const AnimateGraph = () => {
   const [background, setBackground] = useState("#262626");
   const headerRef = useRef(null);
@@ -121,114 +134,111 @@ const AnimateGraph = () => {
       <div className="w-screen h-screen text-white">
         <HeroSection />
       </div>
+      <div className="App-section" ref={addToRefs}>
+        <AboutPage />
+      </div>
       <main className="App-main">
         <div
           className="App-section"
           ref={addToRefs}
           style={{
-            background: "#8623f0",
-            color: "white",
-            borderRadius: "20px",
-          }}
-        >
-          <h2 className="font-serif justify-center flex text-4xl  ">
-            My Expertise
-          </h2>
-          <div className=" flex justify-center flex-col">
-            <h3 className="border lg:p-6 md:mx-[20%] my-2  ">
-              Passionate about Web development. Over half year of development
-              experience in HTML, CSS, JS, React and NextJS frameworks.
-            </h3>
-            <h3 className="lg:flex border-y-4 border-pink-200 pt-10 pb-10 md:mx-[20%] lg:font-extrabold lg:text-xl">
-              I am Fullstack developer based in Ulaan-baatar. Nowadays i am
-              student in Pinecone academy
-            </h3>
-          </div>
-        </div>
-        <div
-          className="App-section"
-          ref={addToRefs}
-          style={{
-            background: "#8623f0",
             color: "white",
             borderRadius: "20px",
           }}
         >
           <div className="flex justify-evenly w-full items-center">
-            <ul className="">
-              <li>React</li>
-              <li>
-                <FaReact className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14 " />
-              </li>
-            </ul>
-            <ul className=" ">
-              <li>Next.JS</li>
-              <li>
-                <TbBrandNextjs className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="   ">
-              <li>CSS</li>
-              <li>
-                <IoLogoCss3 className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="">
-              <li>HTML</li>
-              <li>
-                <FaHtml5 className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20 w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="">
-              <li>JS</li>
-              <li>
-                <TbBrandJavascript className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>React</li>
+                <li>
+                  <FaReact className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14 " />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>Next.JS</li>
+                <li>
+                  <TbBrandNextjs className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>CSS</li>
+                <li>
+                  <IoLogoCss3 className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>HTML</li>
+                <li>
+                  <FaHtml5 className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20 w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>JS</li>
+                <li>
+                  <TbBrandJavascript className="lg:w-40 lg:h-40 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
           </div>
         </div>
         <div
           className="App-section"
           ref={addToRefs}
           style={{
-            background: "#8623f0",
             color: "white",
             borderRadius: "20px",
           }}
         >
           <div className="flex justify-evenly  w-full items-center">
-            <ul className="   ">
-              <li>Tailwind</li>
-              <li>
-                <TbBrandTailwind className="lg:w-25 lg:h-25 md:max-w-20 md:max-h-20  w-14 h-14 " />
-              </li>
-            </ul>
-            <ul className="   ">
-              <li>daisyUI</li>
-              <li>
-                <SiDaisyui className="lg:w-25 lg:h-25 md:max-w-20 md:max-h-20  w-14 h-14 " />
-              </li>
-            </ul>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>Tailwind</li>
+                <li>
+                  <TbBrandTailwind className="lg:w-25 lg:h-25 md:max-w-20 md:max-h-20  w-14 h-14 " />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>daisyUI</li>
+                <li>
+                  <SiDaisyui className="lg:w-25 lg:h-25 md:max-w-20 md:max-h-20  w-14 h-14 " />
+                </li>
+              </ul>
+            </Tilt>
 
-            <ul className="">
-              <li>MUI</li>
-              <li>
-                <SiMui className="lg:w-25 lg:h-25 md:max-w-20 md:max-h-20  w-14 h-14 " />
-              </li>
-            </ul>
-            <ul className="">
-              <li>Sass</li>
-              <li>
-                <FaSass className="lg:w-25 lg:h-25 md:max-w-25 md:max-h-25  w-14 h-14 " />
-              </li>
-            </ul>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>MUI</li>
+                <li>
+                  <SiMui className="lg:w-25 lg:h-25 md:max-w-20 md:max-h-20  w-14 h-14 " />
+                </li>
+              </ul>
+            </Tilt>
+
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>Sass</li>
+                <li>
+                  <FaSass className="lg:w-25 lg:h-25 md:max-w-25 md:max-h-25  w-14 h-14 " />
+                </li>
+              </ul>
+            </Tilt>
           </div>
         </div>
         <div
           className="App-section"
           ref={addToRefs}
           style={{
-            background: "#8623f0",
             color: "white",
             borderRadius: "20px",
           }}
@@ -237,66 +247,83 @@ const AnimateGraph = () => {
             id="aboutId"
             className="flex md:gap-5 py-10  font-extrabold md:text-xl text-lg  justify-evenly"
           >
-            <ul className="">
-              <li>ExpressJS</li>
-              <li>
-                <SiExpress className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14 " />
-              </li>
-            </ul>
-            <ul className=" ">
-              <li>NODE.JS</li>
-              <li>
-                <FaNodeJs className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className=" ">
-              <li>PostGreSQL</li>
-              <li>
-                <FaHtml5 className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="">
-              <li>GITHUB</li>
-              <li>
-                <FaGithubSquare className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>ExpressJS</li>
+                <li>
+                  <SiExpress className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14 " />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>NODE.JS</li>
+                <li>
+                  <FaNodeJs className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>PostGreSQL</li>
+                <li>
+                  <FaHtml5 className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>GITHUB</li>
+                <li>
+                  <FaGithubSquare className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
           </div>
         </div>
         <div
           className="App-section"
           ref={addToRefs}
           style={{
-            background: "#8623f0",
             color: "white",
             borderRadius: "20px",
           }}
         >
           <div className="flex justify-evenly  w-full items-center">
-            <ul className="">
-              <li>GIT</li>
-              <li>
-                <SiGit className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="">
-              <li>Mongo DB</li>
-              <li>
-                <SiMongodb className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="">
-              <li>Mongoose</li>
-              <li>
-                <SiMongoose className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
-            <ul className="">
-              <li>TypeScript</li>
-              <li>
-                <SiTypescript className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
-              </li>
-            </ul>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>GIT</li>
+                <li>
+                  <SiGit className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>Mongo DB</li>
+                <li>
+                  <SiMongodb className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>Mongoose</li>
+                <li>
+                  <SiMongoose className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
+            <Tilt options={defaultOptions}>
+              <ul className="backdrop-blur-sm bg-blue-800 p-6 rounded-full">
+                <li>TypeScript</li>
+                <li>
+                  <SiTypescript className="lg:w-20 lg:h-20 md:max-w-20 md:max-h-20  w-14 h-14" />
+                </li>
+              </ul>
+            </Tilt>
           </div>
         </div>
         <div className="grid grid-cols-2 ">
