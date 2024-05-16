@@ -1,4 +1,6 @@
 "use client";
+import "./App.css";
+
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
@@ -20,12 +22,8 @@ import {
   SiGit,
   SiTypescript,
 } from "react-icons/si";
-import ReactQuill from "react-quill";
 import AboutPage from "./About";
 import { IoLogoCss3 } from "react-icons/io5";
-
-import "./App.css";
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSection from "../HeroSection";
 
